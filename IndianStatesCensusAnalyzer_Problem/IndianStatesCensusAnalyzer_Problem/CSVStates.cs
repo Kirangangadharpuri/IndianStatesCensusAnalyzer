@@ -18,6 +18,10 @@ namespace IndianStatesCensusAnalyzer_Problem
             { 
                 throw new StateCensusException(StateCensusException.StateCensus_ExceptionType.FILE_NOTFOUND,"File note found");
             }
+            if(!path_two.StartsWith(".csv"))
+            {
+                throw new StateCensusException(StateCensusException.StateCensus_ExceptionType.CSVFILE_NOTFOUND, "CSV file not found");
+            }
             using (var reader = new StreamReader(path_two))
             {
                 using (var csv = new CsvReader(reader, CultureInfo.InstalledUICulture))
