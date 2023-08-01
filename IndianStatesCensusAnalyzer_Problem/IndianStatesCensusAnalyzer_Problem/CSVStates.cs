@@ -14,20 +14,18 @@ namespace IndianStatesCensusAnalyzer_Problem
     {
         public int ReadStatesCode(string path_two)
         {
-            
             using (var reader = new StreamReader(path_two))
             {
                 using (var csv = new CsvReader(reader, CultureInfo.InstalledUICulture))
-                {
+                {                  
                     var record = csv.GetRecords<StateCodeData>().ToList();
                     foreach (var data in record)
                     {
                         Console.WriteLine(data.SrNo + " " + data.StateName + " " + data.TIN + " " + data.StateCode);
                     }
-                    return record.Count() - 1;
-
                 }
             }
+            return 0;
         }
     }
 }

@@ -13,6 +13,10 @@ namespace IndianStatesCensusAnalyzer_Problem
     {
         public int ReadStatesCode(string path_two)
         {
+            if (!File.Exists(path_two))
+            {
+                throw new StateCensusException(StateCensusException.StateCensus_ExceptionType.FILE_NOTFOUND, "File note found");
+            }
             using (var reader = new StreamReader(path_two))
             {
                 using (var csv = new CsvReader(reader, CultureInfo.InstalledUICulture))
@@ -22,10 +26,10 @@ namespace IndianStatesCensusAnalyzer_Problem
                     {
                         Console.WriteLine(data.SrNo + " " + data.StateName + " " + data.TIN + " " + data.StateCode);
                     }
-                    return record.Count() - 1;
 
                 }
             }
+            return 0;
         }
     }
 }
