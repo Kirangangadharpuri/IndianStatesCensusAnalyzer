@@ -11,7 +11,7 @@ namespace IndianStatesCensusAnalyzer_Problem
 {
     public class CSVStates
     {
-        public void ReadStatesCode(string path_two)
+        public int ReadStatesCode(string path_two)
         {
             using (var reader = new StreamReader(path_two))
             {
@@ -22,6 +22,8 @@ namespace IndianStatesCensusAnalyzer_Problem
                     {
                         Console.WriteLine(data.SrNo + " " + data.StateName + " " + data.TIN + " " + data.StateCode);
                     }
+                    return record.Count() - 1;
+
                 }
             }
         }
