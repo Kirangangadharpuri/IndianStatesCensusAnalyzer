@@ -73,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateCensusAnalyser.cs" />
     <Compile Include="StateCensusData.cs" />
+    <Compile Include="StateCensusException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

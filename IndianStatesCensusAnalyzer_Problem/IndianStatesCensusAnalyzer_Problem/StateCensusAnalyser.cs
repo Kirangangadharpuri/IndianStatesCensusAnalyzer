@@ -13,6 +13,10 @@ namespace IndianStatesCensusAnalyzer_Problem
     {
         public int ReadStateCensusData(string path)
         {
+            if (!File.Exists(path))
+            {
+                throw new StateCensusException(StateCensusException.StateCensus_ExceptionType.FILE_NOTFOUND, "File not found");
+            }
             using (var reader = new StreamReader(path))
             {
                 using (var csv = new CsvReader(reader,CultureInfo.InstalledUICulture))
@@ -22,9 +26,9 @@ namespace IndianStatesCensusAnalyzer_Problem
                     {
                         Console.WriteLine(data.State + " " + data.DensityPerSqKm + " " + data.Population + " " + data.AreaInSqKm) ;
                     }
-                    return record.Count() - 1;
                 }
             }
+            return 0;
         }
     }
 }
