@@ -79,7 +79,7 @@ namespace IndianStatesCensusAnalyzer_Test
         {
             try
             {
-                int record = cSVStatesAnalyser.ReadStatesCode(stateCodePath);
+                int record = cSVtates.ReadStatesCode(stateCodePath);
             }
             catch (StateCensusException ex)
             {
