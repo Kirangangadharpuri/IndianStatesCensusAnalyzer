@@ -69,11 +69,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSVCensus.cs" />
+    <Compile Include="CSVStates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateCensusAnalyser.cs" />
     <Compile Include="StateCensusData.cs" />
     <Compile Include="StateCensusException.cs" />
+    <Compile Include="StateCodeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
