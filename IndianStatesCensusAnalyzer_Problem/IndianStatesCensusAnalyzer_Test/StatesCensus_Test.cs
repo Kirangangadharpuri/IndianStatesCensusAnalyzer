@@ -14,6 +14,7 @@ namespace IndianStatesCensusAnalyzer_Test
         CSVCensus cSVCensus = new CSVCensus();
         public static string stateCensusFilePaths = @"C:\Users\HP\Desktop\RFP-288\CesusAnalyzer\IndianStatesCensusAnalyzer\IndianStatesCensusAnalyzer_Problem\IndianStatesCensusAnalyzer_Problem\Files\Files\StateCensusDat.csv";
         public static string notCSVPath = @"C:\Users\HP\Desktop\RFP-288\CesusAnalyzer\IndianStatesCensusAnalyzer\IndianStatesCensusAnalyzer_Problem\IndianStatesCensusAnalyzer_Problem\Files\Files\StateCensusData.txt";
+        public static string delimeterPath = @"C:\Users\HP\Desktop\RFP-288\CesusAnalyzer\IndianStatesCensusAnalyzer\IndianStatesCensusAnalyzer_Problem\IndianStatesCensusAnalyzer_Problem\Files\Files\StateCensusDataDelimeter.csv";
         public static string stateCensusFilePath = @"C:\Users\HP\Desktop\RFP-288\CesusAnalyzer\IndianStatesCensusAnalyzer\IndianStatesCensusAnalyzer_Problem\IndianStatesCensusAnalyzer_Problem\Files\Files\StateCensusData.csv";
         [Test]
         public void MatchCounts()
@@ -43,6 +44,18 @@ namespace IndianStatesCensusAnalyzer_Test
             catch(StateCensusException ex)
             {
                 Assert.AreEqual(ex.Message,"CSV file not found");
+            }
+        }
+        [Test]
+        public void GivenCSVFileWithIncorrectDelimeter()
+        {
+            try
+            {
+                int record = stateCensusAnalyser.ReadStateCensusData(delimeterPath);
+            }
+            catch(StateCensusException ex)
+            {
+                Assert.AreEqual(ex.Message, "Delimeter is incorrect");
             }
         }
     }
